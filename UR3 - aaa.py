@@ -98,6 +98,7 @@ path1 = [
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(3)
 send_joint_path(path1, sock)
+time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
 #tancar pinça per agafar la peça
 with open(Cerrar_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(3)
@@ -106,7 +107,7 @@ path2 = [
     [-1.536190666208854, -1.838383707321720, -1.516713187670425, 0.257253453726341, 1.586366795230875, 0.000167832330602]
 ]
 send_joint_path(path2, sock)
-time.sleep(3)
+time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
 #demanar el num
 numero1 = demanar_numero_peça(1)
 executar_trajectoria_segons_numero(numero1, sock)
@@ -116,8 +117,9 @@ path3 = [
     [0.977050757309872, 0.019384889979691, -1.393239027887752, -0.200063498178355, -1.566743309728070, -2.199230332767112]
 ]
 send_joint_path(path3, sock)
-time.sleep(3)
+time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
+time.sleep(3)
 #deixar peça1
 
 #PEÇA 2!!
@@ -127,17 +129,18 @@ path4 = [
 ]
 #potser aquest open s'ha de treure
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
-send_joint_path(path4, sock)
 time.sleep(3)
+send_joint_path(path4, sock)
+time.sleep(3)#no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
 #tancar pinça per agafar la peça
 with open(Cerrar_pinza, 'rb') as f: sock.sendall(f.read())
-time.sleep(35)
+time.sleep(3)
 #portar la pinça a pose de veure
 path5 = [
    [0.698302799420510, -0.720760929805960, -0.473945419259977, 1.121819731848477, 0.649761953908455, -3.084020301024214]
 ]
 send_joint_path(path5, sock)
-time.sleep(3)
+time.sleep(3)#no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
 numero2 = demanar_numero_peça(2)
 executar_trajectoria_segons_numero(numero2, sock)
 time.sleep(3)
@@ -147,8 +150,9 @@ path6 = [
     [-2.146053541389191, -1.858554830129618, -2.173926284372349, -0.198078353693901, 2.455453599893539, -2.468390117922107]
 ]
 send_joint_path(path6, sock)
+time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
-time.sleep(3)
+time.sleep(3) 
 # Mensaje que se imprime cuando se finaliza la ejecución
 # de la trayectoria
 print("Trayectoria finalizada")
