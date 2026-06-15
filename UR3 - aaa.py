@@ -7,7 +7,7 @@ from tkinter import simpledialog
 # Directori on està el script
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-HOST = "10.10.73.237"
+HOST = "10.10.73.235"
 PORT = 30002
 
 # Ruta absoluta als fitxers de la pinza
@@ -59,7 +59,7 @@ def executar_trajectoria_segons_numero(numero, sock):
 def trajectoria_figura(numero, sock):
     if numero == 4:
         pathfi = [
-            [-1.447159069008518, -1.644827512423482, -1.029983530194813, -0.422696837116301, 1.497014895096205 -0.003751004440434],
+            [-1.447159069008518, -1.644827512423482, -1.029983530194813, -0.422696837116301, 1.497014895096205, -0.003751004440434],
             [-0.750209626968530, -1.559133993122124, -1.114111288401728, -0.407425412001099, 0.801139545964185, -0.042927069636849],
             [-0.749864037289718, -1.492170235509374, -1.900465869774991, 0.311923057288943, 0.800766117832470, -0.042911034670523],
             [-1.531840882582348, -1.833199330538566, -1.526216522656946, 0.261696440246406, 1.581601575967733, -0.000024425011782]
@@ -145,7 +145,7 @@ time.sleep(3)
 path6 = [
     [0.114421201764704, 0.220380013972548, -1.921140832133033, 0.760980144024705, -0.768913199707674, 2.426836956989657]
 ]
-send_joint_path(path5, sock)
+send_joint_path(path6, sock)
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(3)
 # Mensaje que se imprime cuando se finaliza la ejecución
