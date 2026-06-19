@@ -49,15 +49,15 @@ def demanar_numero_peça(num_peça):
     root.destroy()
     return numero
 
-def executar_trajectoria_segons_numero(numero, sock):
+def trajectoria_numero(numero, sock):
     if numero % 2 == 0:
         print(f"Número {numero} parell: figura de {numero} costats")
-        trajectoria_figura(numero, sock)
+        figura(numero, sock)
     else:
         print(f"Número {numero} imparell: cercle de radi 5cm")
-        trajectoria_cercle(sock)
+        cercle(sock)
 
-def trajectoria_figura(numero, sock):
+def figura(numero, sock):
     if numero == 4:
         pathfi = [
             [-2.311630985878277, -1.815265800052897, -1.405138624188302, 0.010095904538356, 2.360697087552706, -0.047957468022975],
@@ -68,7 +68,7 @@ def trajectoria_figura(numero, sock):
     #fariem així la lògica per cada número de costats
     send_joint_path(pathfi, sock)
 
-def trajectoria_cercle(sock):
+def cercle(sock):
     pathce = [
         [-1.042927564461636, -0.873964692305305, -2.111329324253208, -0.210865405016873, 1.094306771676160, 0.025955703376278],
         [-1.145400738570315, -0.942068855648443, -1.951218249210320, -0.300444748258736, 1.196082444775712, 0.019982371850360],
@@ -92,7 +92,7 @@ path1 = [
     [-1.969447219150332, -1.843566091636810, -1.391924761531454, -1.388944567259390, 1.602815619552640, -0.440657074568116],
 ]
 send_joint_path(path1, sock)
-time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
+time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas 
 #tancar pinça per agafar la peça
 with open(Cerrar_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(0.5)
@@ -101,17 +101,17 @@ path2 = [
     [-1.590901544553329, -1.155897401140183, -1.999424256268729, -0.034878027414740, 1.641562768416003, -0.002532688713940],
 ]
 send_joint_path(path2, sock)
-time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
+time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas
 #demanar el num
 numero1 = demanar_numero_peça(1)
-executar_trajectoria_segons_numero(numero1, sock)
+trajectoria_numero(numero1, sock)
 time.sleep(3)
 #cami per deixar la peça
 path3 = [
     [-1.628273618395326, -1.606280113421929, -2.097509272358570, -0.609014954430093, 1.616160590659280, 0.006271943607753],
 ]
 send_joint_path(path3, sock)
-time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
+time.sleep(3) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(3)
 #deixar peça1
@@ -127,7 +127,7 @@ path4 = [
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(2)
 send_joint_path(path4, sock)
-time.sleep(3)#no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
+time.sleep(3)#no fa falta ja que ja n'hi ha un a la funcio pero per si de cas
 #tancar pinça per agafar la peça
 with open(Cerrar_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(2)
@@ -136,9 +136,9 @@ path5 = [
    [-1.590720974646908, -1.155773024628555, -1.999494393934870, -0.034931901486521, 1.641375277741080, -0.002523869229181],
 ]
 send_joint_path(path5, sock)
-time.sleep(2)#no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
+time.sleep(2)#no fa falta ja que ja n'hi ha un a la funcio pero per si de cas
 numero2 = demanar_numero_peça(2)
-executar_trajectoria_segons_numero(numero2, sock)
+trajectoria_numero(numero2, sock)
 time.sleep(2)
 
 #deixar peça 2:
@@ -146,7 +146,7 @@ path6 = [
     [-1.628540711633691, -1.478693500621700, -1.789310584202126, -1.044797432139317, 1.616289471052616, 0.006020620373456],
 ]
 send_joint_path(path6, sock)
-time.sleep(2) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas encara a depurar
+time.sleep(2) #no fa falta ja que ja n'hi ha un a la funcio pero per si de cas
 with open(Abrir_pinza, 'rb') as f: sock.sendall(f.read())
 time.sleep(3) 
 # Mensaje que se imprime cuando se finaliza la ejecución
